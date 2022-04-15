@@ -48,6 +48,6 @@ const mode = StyleSheet.create({
     backgroundColor: colors.white,
   },
   break: {
-    backgroundColor: colors.black
+    backgroundColor: colors.black,
   },
 });
