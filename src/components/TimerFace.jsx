@@ -4,13 +4,20 @@ import colors from 'constants/colors';
 import PomodoroPhases from 'enums/PomodoroPhases';
 
 export default function TimerFace(props) {
+
   return (
     <View style={[styles.timerFace, mode[props.phase]]}>
       <View style={styles.safeArea}>
-        <Text style={[styles.time, mode[props.phase]]}>{props.time}</Text>
+        <Text style={[styles.time, mode[props.phase]]}>
+          {props.phase === PomodoroPhases.FOCUS
+            ? props.time
+            : props.breakTime}
+        </Text>
 
-        {props.phase === PomodoroPhases.FOCUS
-          && <Text style={[styles.storedTime, mode[props.phase]]}>01:02</Text>}
+        {props.phase === PomodoroPhases.FOCUS &&
+          <Text style={[styles.storedTime, mode[props.phase]]}>
+            {props.breakTime}
+          </Text>}
       </View>
     </View>
   );
