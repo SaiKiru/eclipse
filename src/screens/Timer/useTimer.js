@@ -29,26 +29,28 @@ export function useTimer() {
   }
 
   function getTime() {
-    let hours = parseInt(_seconds / 60 / 60 % 60);
-    let minutes = parseInt(_seconds / 60 % 60);
-    let seconds = parseInt(_seconds % 60);
+    let isNegative = _seconds < 0;
+    let hours = parseInt(Math.abs(_seconds) / 60 / 60 % 60);
+    let minutes = parseInt(Math.abs(_seconds) / 60 % 60);
+    let seconds = parseInt(Math.abs(_seconds) % 60);
     let hoursStr = zeroPad(hours, 2);
     let minutesStr = zeroPad(minutes, 2);
     let secondsStr = zeroPad(seconds, 2);
 
-    return `${hours ? `${hoursStr} : ` : ``} ${minutesStr} : ${secondsStr}`;
+    return `${isNegative ? `-` : ``}${hours ? `${hoursStr} : ` : ``} ${minutesStr} : ${secondsStr}`;
   }
 
   function getBreakTime() {
+    let isNegative = _seconds < 0;
     let credits = _seconds / 5;
-    let hours = parseInt(credits / 60 / 60 % 60);
-    let minutes = parseInt(credits / 60 % 60);
-    let seconds = parseInt(credits % 60);
+    let hours = parseInt(Math.abs(credits) / 60 / 60 % 60);
+    let minutes = parseInt(Math.abs(credits) / 60 % 60);
+    let seconds = parseInt(Math.abs(credits) % 60);
     let hoursStr = zeroPad(hours, 2);
     let minutesStr = zeroPad(minutes, 2);
     let secondsStr = zeroPad(seconds, 2);
 
-    return `${hours ? `${hoursStr} : ` : ``} ${minutesStr} : ${secondsStr}`;
+    return `${isNegative ? `-` : ``}${hours ? `${hoursStr} : ` : ``} ${minutesStr} : ${secondsStr}`;
   }
 
   function _tick() {
