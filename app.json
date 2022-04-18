@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0E0E0E"
-      }
+      },
+      "package": "com.saikiru.eclipse_pomodoro"
     },
     "web": {
       "favicon": "./assets/favicon.png"
