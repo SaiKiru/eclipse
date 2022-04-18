@@ -59,3 +59,7 @@ Alternatively, you can also use `--profile development` for dev tools.
 Found a bug or problem that you want resolved? Please consider opening an issue [here](https://github.com/SaiKiru/eclipse/issues/new?template=bug_report.md).
 
 Want to request for a feature? You can open a request [here](https://github.com/SaiKiru/eclipse/issues/new?template=feature_request.md)
+
+
+## Download
+You can find the latest release for Android [here](https://github.com/SaiKiru/eclipse/releases).
