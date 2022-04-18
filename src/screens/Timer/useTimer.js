@@ -11,13 +11,10 @@ export function useTimer() {
   let timer = React.useRef();
 
   function startTimer() {
-    clearInterval(timer.current);
-    timer.current = setInterval(_tick, 1000);
     _setTimerState(TimerStates.PLAYING);
   }
 
   function stopTimer() {
-    clearInterval(timer.current);
     _setTimerState(TimerStates.STOPPED);
   }
 
@@ -60,6 +57,14 @@ export function useTimer() {
         : prev - 5;
     });
   }
+
+  React.useEffect(() => {
+    clearInterval(timer.current);
+
+    if (timerState === TimerStates.PLAYING) {
+      timer.current = setInterval(_tick, 1000);
+    }
+  }, [timerState, phase]);
 
   return {
     timerState,
