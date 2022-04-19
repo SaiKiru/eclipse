@@ -24,9 +24,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Platform (please complete the following information):**
- - Device: [e.g. iPhone6, Desktop]
- - OS: [e.g. iOS8.1]
- - Version [e.g. 22]
+ - Device: [e.g. iPhone6, Oppo F9]
+ - OS: [e.g. iOS8.1, Android 10]
+ - Version [e.g. 1.2.12]
 
 **Additional context**
 Add any other context about the problem here.
