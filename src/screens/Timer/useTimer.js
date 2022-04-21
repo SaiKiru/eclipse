@@ -22,6 +22,11 @@ export function useTimer() {
     _setTimerState(TimerStates.STOPPED);
   }
 
+  function resetTimer() {
+    stopTimer();
+    _setSeconds(0);
+  }
+
   function switchPhase() {
     startTime.current = new Date();
     accumulatedTime.current = _seconds;
@@ -80,6 +85,7 @@ export function useTimer() {
     phase,
     startTimer,
     stopTimer,
+    resetTimer,
     switchPhase,
     getTime,
     getBreakTime
