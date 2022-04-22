@@ -9,16 +9,23 @@ export function useTimer() {
   const [timerState, _setTimerState] = React.useState(TimerStates.STOPPED);
   const [phase, _setPhase] = React.useState(PomodoroPhases.FOCUS);
   let timer = React.useRef();
+  let startTime = React.useRef();
+  let accumulatedTime = React.useRef(0);
 
   function startTimer() {
+    startTime.current = new Date();
     _setTimerState(TimerStates.PLAYING);
   }
 
   function stopTimer() {
+    accumulatedTime.current = _seconds;
     _setTimerState(TimerStates.STOPPED);
   }
 
   function switchPhase() {
+    startTime.current = new Date();
+    accumulatedTime.current = _seconds;
+
     _setPhase(phase => {
       if (phase === PomodoroPhases.FOCUS) return PomodoroPhases.BREAK;
       return PomodoroPhases.FOCUS;
@@ -51,11 +58,13 @@ export function useTimer() {
   }
 
   function _tick() {
-    _setSeconds(prev => {
-      return phase === PomodoroPhases.FOCUS
-        ? prev + 1
-        : prev - 5;
-    });
+    let currentTime = new Date();
+    let elapsedTime = Math.floor((currentTime - startTime.current) / 1000);
+
+    _setSeconds(phase === PomodoroPhases.FOCUS
+      ? accumulatedTime.current + elapsedTime
+      : accumulatedTime.current - (elapsedTime * 5)
+    );
   }
 
   React.useEffect(() => {
