@@ -34,9 +34,9 @@ export function useTimer() {
 
   function getTime() {
     let isNegative = _seconds < 0;
-    let hours = parseInt(Math.abs(_seconds) / 60 / 60 % 60);
-    let minutes = parseInt(Math.abs(_seconds) / 60 % 60);
-    let seconds = parseInt(Math.abs(_seconds) % 60);
+    let hours = Math.floor(Math.abs(_seconds) / 3600);
+    let minutes = Math.floor(Math.abs(_seconds) / 60 % 60);
+    let seconds = Math.floor(Math.abs(_seconds) % 60);
     let hoursStr = zeroPad(hours, 2);
     let minutesStr = zeroPad(minutes, 2);
     let secondsStr = zeroPad(seconds, 2);
@@ -47,9 +47,9 @@ export function useTimer() {
   function getBreakTime() {
     let isNegative = _seconds < 0;
     let credits = _seconds / 5;
-    let hours = parseInt(Math.abs(credits) / 60 / 60 % 60);
-    let minutes = parseInt(Math.abs(credits) / 60 % 60);
-    let seconds = parseInt(Math.abs(credits) % 60);
+    let hours = Math.floor(Math.abs(credits) / 3600);
+    let minutes = Math.floor(Math.abs(credits) / 60 % 60);
+    let seconds = Math.floor(Math.abs(credits) % 60);
     let hoursStr = zeroPad(hours, 2);
     let minutesStr = zeroPad(minutes, 2);
     let secondsStr = zeroPad(seconds, 2);
