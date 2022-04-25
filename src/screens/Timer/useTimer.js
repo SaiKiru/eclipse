@@ -46,7 +46,7 @@ export function useTimer() {
 
   function getBreakTime() {
     let isNegative = _seconds < 0;
-    let credits = _seconds / 5;
+    let credits = Math.floor(_seconds / 5);
     let hours = Math.floor(Math.abs(credits) / 3600);
     let minutes = Math.floor(Math.abs(credits) / 60 % 60);
     let seconds = Math.floor(Math.abs(credits) % 60);
