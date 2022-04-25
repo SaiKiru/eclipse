@@ -25,6 +25,8 @@ export function useTimer() {
   function resetTimer() {
     stopTimer();
     _setSeconds(0);
+    accumulatedTime.current = 0;
+    if (phase === PomodoroPhases.BREAK) { switchPhase(); }
   }
 
   function switchPhase() {
