@@ -9,6 +9,15 @@ export default function TimerControls(props) {
     <View style={styles.container}>
       <Pressable
         style={[styles.control, mode[props.phase]]}
+        onPress={props.resetTimer}
+      >
+        <Text style={[styles.controlLabel, mode[props.phase]]}>
+          Reset
+        </Text>
+      </Pressable>
+
+      <Pressable
+        style={[styles.control, mode[props.phase]]}
         onPress={props.timerState === TimerStates.STOPPED ? props.startTimer : props.stopTimer}
       >
         <Text style={[styles.controlLabel, mode[props.phase]]}>

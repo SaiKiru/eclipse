@@ -13,6 +13,7 @@ export default function TimerScreen() {
     startTimer,
     stopTimer,
     switchPhase,
+    resetTimer,
     getTime,
     getBreakTime
   } = useTimer();
@@ -29,6 +30,7 @@ export default function TimerScreen() {
         phase={phase}
         startTimer={startTimer}
         stopTimer={stopTimer}
+        resetTimer={resetTimer}
         switchPhase={switchPhase}
       />
     </SafeAreaView>
