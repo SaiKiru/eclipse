@@ -22,7 +22,7 @@
         "simulator": true
       }
     },
-    "sample": {
+    "github": {
       "android": {
         "buildType": "apk"
       }
