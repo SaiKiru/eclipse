@@ -1,6 +1,6 @@
 import { View, StyleSheet, Pressable, Text } from 'react-native';
 import colors from 'constants/colors';
-
+import { NextIcon, PauseIcon, PlayIcon, StopIcon } from 'assets/img/icons/index';
 import PomodoroPhases from 'enums/PomodoroPhases';
 import TimerStates from 'enums/TimerStates';
 
@@ -8,30 +8,38 @@ export default function TimerControls(props) {
   return (
     <View style={styles.container}>
       <Pressable
-        style={[styles.control, mode[props.phase]]}
+        style={styles.control}
         onPress={props.resetTimer}
       >
-        <Text style={[styles.controlLabel, mode[props.phase]]}>
-          Reset
-        </Text>
+        <StopIcon
+          width={'100%'}
+          fill={props.phase === PomodoroPhases.FOCUS ? colors.black : colors.white}
+        />
       </Pressable>
 
       <Pressable
-        style={[styles.control, mode[props.phase]]}
+        style={styles.control}
         onPress={props.timerState === TimerStates.STOPPED ? props.startTimer : props.stopTimer}
       >
-        <Text style={[styles.controlLabel, mode[props.phase]]}>
-          {props.timerState === TimerStates.STOPPED ? 'PLAY' : 'PAUSE'}
-        </Text>
+        {props.timerState === TimerStates.STOPPED
+          ? <PlayIcon
+            width={'100%'}
+            fill={props.phase === PomodoroPhases.FOCUS ? colors.black : colors.white}
+          />
+          : <PauseIcon
+            width={'100%'}
+            fill={props.phase === PomodoroPhases.FOCUS ? colors.black : colors.white}
+          />}
       </Pressable>
 
       <Pressable
-        style={[styles.control, mode[props.phase]]}
+        style={styles.control}
         onPress={props.switchPhase}
       >
-        <Text style={[styles.controlLabel, mode[props.phase]]}>
-          {props.phase === PomodoroPhases.BREAK ? 'FOCUS' : 'BREAK'}
-        </Text>
+        <NextIcon
+          width={'100%'}
+          fill={props.phase === PomodoroPhases.FOCUS ? colors.black : colors.white}
+        />
       </Pressable>
     </View>
   );
@@ -46,26 +54,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 48,
   },
   control: {
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderRadius: 4,
     padding: 8,
-    width: 80,
+    width: 64,
   },
   controlLabel: {
     textAlign: 'center',
     textTransform: 'uppercase',
     fontSize: 18,
-  },
-});
-
-const mode = StyleSheet.create({
-  focus: {
-    borderColor: colors.black,
-    color: colors.black,
-  },
-  break: {
-    borderColor: colors.white,
-    color: colors.white,
   },
 });
