@@ -4,6 +4,7 @@ import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import colors from 'constants/colors';
 import TimerFace from 'components/TimerFace';
 import TimerControls from 'components/TimerControls';
+import TimerPhaseLabel from 'components/TimerPhaseLabel';
 import { useTimer } from './useTimer';
 
 export default function TimerScreen() {
@@ -20,6 +21,9 @@ export default function TimerScreen() {
 
   return (
     <SafeAreaView style={[styles.container, mode[phase]]}>
+      <TimerPhaseLabel
+        phase={phase}
+      />
       <TimerFace
         time={getTime()}
         breakTime={getBreakTime()}
