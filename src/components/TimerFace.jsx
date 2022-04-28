@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
     width: '80%',
     aspectRatio: 1,
     borderRadius: 1000,
+    borderWidth: 3,
   },
   time: {
-    fontSize: 52,
-    fontWeight: '700',
+    fontSize: 48,
   },
   storedTime: {
     position: 'absolute',
@@ -50,11 +50,13 @@ const styles = StyleSheet.create({
 
 const mode = StyleSheet.create({
   focus: {
-    backgroundColor: colors.black,
-    color: colors.white,
-  },
-  break: {
+    borderColor: colors.black,
     backgroundColor: colors.white,
     color: colors.black,
+  },
+  break: {
+    borderColor: colors.white,
+    backgroundColor: colors.black,
+    color: colors.white,
   },
 });
